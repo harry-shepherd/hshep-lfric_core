@@ -36,13 +36,15 @@ module lfric_ncdf_field_mod
 
   contains
 
-    generic           :: read_data => read_data_real32,    &
-                                      read_data_real64
-    procedure, public :: write_data
-    procedure, public :: set_char_attribute
-    procedure, public :: get_char_attribute
-    procedure, public :: set_real_attribute
-    procedure, public :: get_real_attribute
+    procedure, private :: read_data_real32
+    procedure, private :: read_data_real64
+    generic            :: read_data => read_data_real32,    &
+                                       read_data_real64
+    procedure, public  :: write_data
+    procedure, public  :: set_char_attribute
+    procedure, public  :: get_char_attribute
+    procedure, public  :: set_real_attribute
+    procedure, public  :: get_real_attribute
 
   end type
 
