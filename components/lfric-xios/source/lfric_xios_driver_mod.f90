@@ -33,7 +33,10 @@ contains
 
     if (comm_has_been_split) then
       call xios_initialize( model_name, &
-                            local_comm=model_communicator%get_comm_mpi_val() )
+         local_comm=model_communicator%get_comm_mpi_val(), &
+         return_comm=comm)
+      call model_communicator%set_comm_mpi_val(comm)
+      
     else
       call init_wait()
       call xios_initialize( model_name, return_comm=comm )
