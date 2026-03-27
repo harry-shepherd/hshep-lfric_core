@@ -32,10 +32,8 @@ contains
     integer(i_def) :: comm
 
     if (comm_has_been_split) then
-      call xios_initialize( model_name, &
-         local_comm=model_communicator%get_comm_mpi_val(), &
-         return_comm=comm)
-      call model_communicator%set_comm_mpi_val(comm)
+      call xios_initialize( "lfric", &
+         local_comm=model_communicator%get_comm_mpi_val() )
       
     else
       call init_wait()
